@@ -1,5 +1,6 @@
 using AutoMapper;
 using Framework.Infrastructure.Mappings;
+using Framework.Repository.Helper;
 using Framework.Repository.Implement;
 using Framework.Repository.Interface;
 using Framework.Service.Implement;
@@ -81,6 +82,12 @@ namespace Framework
             container.RegisterType<ITestService, TestService>();
 
             container.RegisterType<ITestRepository, TestRepository>();
+
+            container.RegisterType<IDatabaseHelper>(
+                new InjectionFactory(c =>
+                {
+                    return new DatabaseHelper("XXXXXXX");
+                }));
 
             //container.RegisterType<ITestService>(
             //    new InjectionFactory(c =>
