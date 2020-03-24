@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Framework.Repositories.DataModel
+namespace Framework.Repository.DataModel
 {
     public class TestDataModel
     {

@@ -297,6 +297,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Framework.Repository\Framework.Repository.csproj">
+      <Project>{371C09CE-8175-4B1B-B6D1-5A8D559F70E3}</Project>
+      <Name>Framework.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Service\Framework.Service.csproj">
       <Project>{D8AA44F7-4B08-46FC-B31E-496C78752A23}</Project>
       <Name>Framework.Service</Name>

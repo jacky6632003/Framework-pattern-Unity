@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-
+using Framework.Repository.DataModel;
 using Framework.Service.InfoModel;
 using Framework.Service.ResultModel;
 using System;
@@ -15,7 +15,7 @@ namespace Framework.Service.Infrastructure.Mappings
         public ServiceMappingProfile()
         {
             //this.CreateMap<TestInfoModel, TestConditionModel>();
-            //this.CreateMap<TestDataModel, TestResultModel>();
+            this.CreateMap<TestDataModel, TestResultModel>();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-
+using Framework.Repository.DataModel;
+using Framework.Repository.Interface;
 using Framework.Service.InfoModel;
 using Framework.Service.Interface;
 using Framework.Service.ResultModel;
@@ -15,13 +16,18 @@ namespace Framework.Service.Implement
     {
         private readonly IMapper _mapper;
 
-        public TestService()
+        private readonly ITestRepository _testRepository;
+
+        public TestService(ITestRepository testRepository, IMapper mapper)
         {
+            this._testRepository = testRepository;
+            this._mapper = mapper;
         }
 
         public async Task<IEnumerable<TestResultModel>> Gettest(TestInfoModel para)
         {
-            List<TestResultModel> result = new List<TestResultModel>();
+            var data = await this._testRepository.GetTest();
+            var result = _mapper.Map<IEnumerable<TestDataModel>, IEnumerable<TestResultModel>>(data);
 
             return result;
         }

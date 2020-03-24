@@ -1,9 +1,12 @@
 using AutoMapper;
 using Framework.Infrastructure.Mappings;
-
+using Framework.Repository.Implement;
+using Framework.Repository.Interface;
 using Framework.Service.Implement;
+using Framework.Service.Infrastructure.Mappings;
 using Framework.Service.Interface;
 using System;
+using System.Data;
 using System.Net.Http;
 using Unity;
 using Unity.Injection;
@@ -56,6 +59,7 @@ namespace Framework
                 cfg =>
                 {
                     cfg.AddProfile<ControllerMapperingProfile>();
+                    cfg.AddProfile<ServiceMappingProfile>();
                 });
             container.RegisterInstance(config.CreateMapper());
 
@@ -67,8 +71,16 @@ namespace Framework
             // database connection - Mysql
             var MySQLConnection = "";
 
+            //DB
+
+            //Func<string,IDbConnection> connectionFactory = name =>
+            //{
+            //    var connectionText=ba
+            //}
             //service
             container.RegisterType<ITestService, TestService>();
+
+            container.RegisterType<ITestRepository, TestRepository>();
 
             //container.RegisterType<ITestService>(
             //    new InjectionFactory(c =>
